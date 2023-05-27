@@ -41,6 +41,7 @@ def home():
         if create != False:
             room = generate_unique_code(4)
             rooms[room] = {'members': 0, "messages": []}
+            rooms[room]['members'] += 1
         elif code not in rooms:
             return render_template('home.html', error='code not exist', code=code, name=name)
 
@@ -51,25 +52,22 @@ def home():
     return render_template('home.html')
 
 
-# @app.route('/room')
-# def room():
-#     room = session.get("room")
-#     # room is None
-#     if room not in rooms or session.get("name") is None:
-#         return redirect(url_for('home'))
-#     return render_template('room.html', code=room, messages=rooms[room]['messages'])
-@app.route('/room')
+@app.route('/room', methods=["POST", "GET"])
 def room():
     room = session.get("room")
     name = session.get("name")
+
+    if request.method == 'POST':
+        session.clear()
+        return redirect(url_for('home'))
 
     if not room or not name:
         return render_template('home.html')
 
     if room not in rooms:
         rooms[room] = {'members': 0, 'messages': []}
-
-    return render_template('room.html', code=room, messages=rooms[room]['messages'])
+        rooms[room]['members'] += 1
+    return render_template('room.html', code=room, messages=rooms[room]['messages'], member=rooms[room]['members'])
 
 
 @socketio.on('message')
@@ -102,6 +100,7 @@ def connect(auth):
     send({"name": name, "message": "has entered the room"}, to=room)
     rooms[room]["members"] += 1
     print(f"{name} joined room {room}")
+    print(f'amount: {rooms[room]["members"]}')
 
 
 @socketio.on('disconnect')

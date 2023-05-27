@@ -67,6 +67,14 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .message-box {
   overflow: hidden;
   height: 96vh;
@@ -121,4 +129,23 @@ em {
 .muted {
   font-size: 10px;
   color: darkgray;
+}
+
+/* ---- responsive ------ */
+@media screen and (max-width: 768px) {
+  .room-header{
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .form-wrapper{
+    width: 100%;
+  }
+  .message-box{
+    margin: 0;
+    overflow: hidden;
+    word-wrap: normal;
+  }
+  #send-btn{
+    width: 100px;
+  }
 }
