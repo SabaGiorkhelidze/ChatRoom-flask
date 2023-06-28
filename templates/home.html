@@ -1,41 +1,48 @@
 {% extends 'base.html' %} {% block content %}
-<form method="post" class="form">
-  <div class="form-wrapper">
-    <h3 style="font-size: 24px">Enter Chat Room</h3>
-    <div class="name-input-container">
-      <label for="">Name:</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="pick a name"
-        value="{{name}}"
-        class="name-input"
-      />
-    </div>
-    <div>
-      <button type="submit" name="create" class="create-btn">
-        Create a Room
-      </button>
-    </div>
-
-    <div><h1>or</h1></div>
-
-    <div class="join">
-      <input
-        type="text"
-        name="code"
-        placeholder="enter room code"
-        value="{{code}}"
-        class="code-input"
-      />
-      <button type="submit" name="join">join a Room</button>
-    </div>
-
-    {% if error %}
-    <ul>
-      <li>{{error}}</li>
-    </ul>
-    {% endif %}
+<div class="main-div">
+  <div class="image-div">
+    <img src="{{url_for('static', filename='/chat.jpg')}}" alt="" />
   </div>
-</form>
+  <div class="form-div">
+    <form method="post" class="form">
+      <div class="form-wrapper">
+        <h3 style="font-size: 24px">Enter Chat Room</h3>
+        <div class="name-input-container">
+          <label for="" style="font-size: 20px">Name:</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="pick a name"
+            value="{{name}}"
+            class="name-input"
+          />
+        </div>
+        <div>
+          <button type="submit" name="create" class="create-btn">
+            Create a Room
+          </button>
+        </div>
+
+        <div><h1>or</h1></div>
+
+        <div class="join">
+          <input
+            type="text"
+            name="code"
+            placeholder="enter room code"
+            value="{{code}}"
+            class="code-input"
+          />
+          <button type="submit" name="join">join a Room</button>
+        </div>
+
+        {% if error %}
+        <ul>
+          <li>{{error}}</li>
+        </ul>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}

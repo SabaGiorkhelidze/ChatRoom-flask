@@ -1,6 +1,38 @@
 /* ----- HomePage ----- */
+.main-div {
+  width: 100%;
+
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.image-div {
+  width: 50%;
+  height: 80%;
+
+
+}
+.image-div img {
+  width: 100%;
+  height: 590px;
+  overflow: hidden;
+}
+.form-div{
+  width: 50%;
+
+  height: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 .form-wrapper {
-  width: 70vw;
+  width: 100%;
+  height: 100%;
+
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -10,56 +42,66 @@
 
 .name-input-container {
   display: flex;
+
+  padding: 10px;
   gap: 5px;
   align-items: flex-start;
   flex-direction: column;
 }
 .name-input {
   border: 1px solid rgb(145, 145, 145);
-  border-bottom: 5px solid black;
-  height: 23px;
-  width: 196px;
-  border-radius: 10px;
-  /* border: none; */
+  border-bottom: 5px solid rgb(204, 142, 255);
+  height: 33px;
+  width: 296px;
+  font-size: 20px;
+  border-radius: 3px;
 }
 .name-input:focus {
   outline: none;
 }
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+
 .join {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
+  width: 60%;
+  padding: 20px;
+
 }
 button {
-  width: 200px;
-  height: 30px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
   cursor: pointer;
-  border: 1px solid black;
-  border-radius: 10px;
+  background: #efe7f0;
+  border: 1px solid blue;
+  border-radius: 4px;
   transition-property: transform;
 }
 button:hover {
   transform: scale(1.05);
   animation: ease-in;
-  background: #000;
+  background: #ab43ca;
   color: white;
 }
 .code-input {
   border: 1px solid rgb(145, 145, 145);
-  border-bottom: 5px solid black;
-  height: 23px;
-  width: 196px;
-  border-radius: 10px;
+  border-bottom: 5px solid rgb(204, 142, 255);
+  height: 33px;
+  width: 296px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+.code-input:focus{
+  outline: none;
+}
+
+ul li{
+  list-style-type: none;
+  color: red;
+  font-size: 24px;
 }
 /* ------------ */
 .content {
@@ -130,22 +172,25 @@ em {
   font-size: 10px;
   color: darkgray;
 }
+.send-button{
+  width: 200px;
+}
 
 /* ---- responsive ------ */
 @media screen and (max-width: 768px) {
-  .room-header{
+  .room-header {
     flex-direction: column;
     margin-bottom: 20px;
   }
-  .form-wrapper{
+  .form-wrapper {
     width: 100%;
   }
-  .message-box{
+  .message-box {
     margin: 0;
     overflow: hidden;
     word-wrap: normal;
   }
-  #send-btn{
+  #send-btn {
     width: 100px;
   }
 }
